@@ -17,9 +17,25 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        create("release") {
+            val ks = rootProject.file("app/absynt-release.jks")
+            if (ks.exists()) {
+                storeFile = ks
+                storePassword = "absynt2024"
+                keyAlias = "absynt"
+                keyPassword = "absynt2024"
+            }
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
+            val ks = rootProject.file("app/absynt-release.jks")
+            if (ks.exists()) {
+                signingConfig = signingConfigs.getByName("release")
+            }
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
