@@ -1,54 +1,36 @@
 package com.absynth.hostel.ui.theme
 
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.graphics.Color
 
-private val DarkColorScheme = darkColorScheme(
-    primary = AbsinthGreen,
-    onPrimary = GoldPrimary,
-    secondary = GoldPrimary,
-    onSecondary = AbsinthGreen,
-    tertiary = AbsinthGreenLight,
-    onTertiary = Color.White,
-    background = DarkBackground,
-    onBackground = Color.White,
-    surface = DarkBackgroundSecond,
-    onSurface = Color.White,
-    error = ErrorRed,
-    onError = Color.White
-)
-
-private val LightColorScheme = lightColorScheme(
-    primary = AbsinthGreen,
-    onPrimary = Color.White,
-    secondary = GoldPrimary,
-    onSecondary = Color.White,
-    tertiary = AbsinthGreenLight,
-    onTertiary = Color.White,
+private val AbsyntColorScheme = lightColorScheme(
+    primary = TealPrimary,
+    onPrimary = Snow,
+    primaryContainer = TealPale,
+    onPrimaryContainer = TealDeep,
+    secondary = Sand,
+    onSecondary = Charcoal,
+    secondaryContainer = SandLight,
+    onSecondaryContainer = Charcoal,
+    tertiary = TealMid,
+    onTertiary = Snow,
     background = Cream,
-    onBackground = DarkText,
-    surface = Color.White,
-    onSurface = DarkText,
+    onBackground = InkText,
+    surface = Snow,
+    onSurface = InkText,
+    surfaceVariant = TealPale,
+    onSurfaceVariant = MutedText,
     error = ErrorRed,
-    onError = Color.White
+    onError = Snow
 )
 
 @Composable
-fun AbysynthTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
+fun AbsyntTheme(
     content: @Composable () -> Unit
 ) {
-    val colorScheme = when {
-        darkTheme -> DarkColorScheme
-        else -> LightColorScheme
-    }
-
     MaterialTheme(
-        colorScheme = colorScheme,
+        colorScheme = AbsyntColorScheme,
         typography = Typography,
         content = content
     )

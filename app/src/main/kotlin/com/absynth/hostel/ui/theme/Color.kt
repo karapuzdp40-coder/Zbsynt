@@ -2,24 +2,27 @@ package com.absynth.hostel.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-val AbsinthGreen = Color(0xFF1B5E20)
-val AbsinthGreenDark = Color(0xFF0D3D0D)
-val AbsinthGreenLight = Color(0xFF388E3C)
-val AbsinthGreenVeryLight = Color(0xFFC8E6C9)
-val GoldPrimary = Color(0xFFD4AF37)
-val GoldLight = Color(0xFFFFE082)
-val GoldDark = Color(0xFFB8860B)
+// Brand palette derived from absynthostel.pl (teal #3E879F)
+val TealPrimary = Color(0xFF3E879F)
+val TealMid = Color(0xFF2F6F86)
+val TealDark = Color(0xFF235567)
+val TealDeep = Color(0xFF16323D)
+val TealLight = Color(0xFF7FBCCE)
+val TealPale = Color(0xFFE4F0F3)
 
-val DarkBackground = Color(0xFF0F0F0F)
-val DarkBackgroundSecond = Color(0xFF1A1A1A)
-val SurfaceColor = Color(0xFF1E1E1E)
-val Cream = Color(0xFFFAF7F2)
-val CreamLight = Color(0xFFFFFFFF)
-val DarkText = Color(0xFF1A1A1A)
-val LightText = Color(0xFF757575)
-val MediumText = Color(0xFF424242)
+// Warm premium accent
+val Sand = Color(0xFFC9A36B)
+val SandLight = Color(0xFFE7CFA3)
 
+// Neutrals
+val Cream = Color(0xFFF7F5F1)
+val Snow = Color(0xFFFFFFFF)
+val Charcoal = Color(0xFF14201F)
+val InkText = Color(0xFF1D2B2E)
+val MutedText = Color(0xFF5C6B70)
+val FaintText = Color(0xFF8A989C)
+val HairLine = Color(0xFFE3E1DC)
+
+// Status
 val SuccessGreen = Color(0xFF4CAF50)
-val WarningOrange = Color(0xFFFFC107)
 val ErrorRed = Color(0xFFE53935)
-val InfoBlue = Color(0xFF2196F3)
