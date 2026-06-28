@@ -4,24 +4,16 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.Surface
-import androidx.compose.ui.Modifier
-import com.absynth.hostel.ui.navigation.RootNavigation
-import com.absynth.hostel.ui.theme.AbysynthTheme
+import com.absynth.hostel.ui.AbsyntApp
+import com.absynth.hostel.ui.theme.AbsyntTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            AbysynthTheme {
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = com.absynth.hostel.ui.theme.AbsinthGreen
-                ) {
-                    RootNavigation()
-                }
+            AbsyntTheme {
+                AbsyntApp()
             }
         }
     }
