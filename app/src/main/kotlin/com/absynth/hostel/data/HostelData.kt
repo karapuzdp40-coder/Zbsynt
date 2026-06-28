@@ -24,17 +24,34 @@ object HostelInfo {
     const val WEBSITE = "https://www.absynthostel.pl"
     const val RECEPTION = "Recepcja 24h · zameldowanie od 15:00"
     const val SINCE = "Świadczymy usługi od 1991 roku"
-    const val CAPACITY = "150 miejsc noclegowych w centrum Wrocławia"
-    const val PARKING = "Parking podziemny przy ul. Świętego Antoniego (2 min od hostelu) — 50 zł/doba."
+    const val CAPACITY = "38 pokoi · 150 miejsc noclegowych w centrum"
+    const val DESIGNER = "Wnętrza zaprojektowane z projektantem wnętrz"
+    const val PARKING = "2 strzeżone parkingi 150 m od hostelu (płatne). Bezpłatnie 18:00–9:00 oraz w weekendy."
 
     val ABOUT = listOf(
         "Mieścimy się w odrestaurowanej, zabytkowej kamienicy w samym sercu Wrocławia, " +
             "przy jednej z najstarszych ulic miasta.",
-        "Gruntowny remont sprawił, że oferujemy wygodny nocleg dla turystów i grup — " +
-            "wygodne łóżka, czysta pościel i przyjazna atmosfera.",
+        "Mamy 38 elegancko wykończonych pokoi dla 150 osób — wszystkie urządzone we " +
+            "współpracy z zawodowym projektantem wnętrz.",
         "Recepcja działa całą dobę, a do Rynku dojdziesz pieszo w kilka minut."
     )
+
+    // "Kto u nas nocuje?" — paraphrased
+    const val GUESTS = "Goszczą u nas osoby prywatne i zorganizowane grupy z całego świata — " +
+        "studenci, turyści i podróżujący służbowo, szukający taniego i wygodnego noclegu we Wrocławiu."
+    const val NIGHTLIFE = "Większość barów, klubów i miejsc rozrywki Wrocławia znajdziesz tuż obok hostelu."
 }
+
+data class GalleryItem(val image: Int, val caption: String)
+
+val gallery = listOf(
+    GalleryItem(R.drawable.hero_rynek, "Rynek we Wrocławiu"),
+    GalleryItem(R.drawable.gallery_lounge, "Strefa wspólna i kuchnia"),
+    GalleryItem(R.drawable.gallery_double, "Pokój prywatny"),
+    GalleryItem(R.drawable.room_interior, "Dormitorium"),
+    GalleryItem(R.drawable.attraction_tumski, "Ostrów Tumski nad Odrą"),
+    GalleryItem(R.drawable.gallery_street, "Wieczorne Stare Miasto"),
+)
 
 data class Amenity(val label: String, val icon: ImageVector)
 

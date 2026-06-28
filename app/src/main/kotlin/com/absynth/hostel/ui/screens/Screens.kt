@@ -59,10 +59,12 @@ import androidx.compose.ui.unit.sp
 import com.absynth.hostel.R
 import com.absynth.hostel.data.Amenity
 import com.absynth.hostel.data.Attraction
+import com.absynth.hostel.data.GalleryItem
 import com.absynth.hostel.data.HostelInfo
 import com.absynth.hostel.data.RoomType
 import com.absynth.hostel.data.amenities
 import com.absynth.hostel.data.attractions
+import com.absynth.hostel.data.gallery
 import com.absynth.hostel.data.rooms
 import com.absynth.hostel.ui.theme.Charcoal
 import com.absynth.hostel.ui.theme.Cream
@@ -164,6 +166,20 @@ fun HomeScreen(onBook: () -> Unit) {
                 HostelInfo.ABOUT.forEach {
                     Text("•  $it", fontSize = 14.sp, color = MutedText, lineHeight = 21.sp, modifier = Modifier.padding(bottom = 8.dp))
                 }
+            }
+        }
+
+        SectionTitle("Kto u nas nocuje?")
+        Card(
+            modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp),
+            shape = RoundedCornerShape(18.dp),
+            colors = CardDefaults.cardColors(containerColor = TealPale),
+            elevation = CardDefaults.cardElevation(defaultElevation = 0.dp)
+        ) {
+            Column(Modifier.padding(18.dp)) {
+                Text(HostelInfo.GUESTS, fontSize = 14.sp, color = TealDeep, lineHeight = 21.sp)
+                Spacer(Modifier.height(10.dp))
+                Text(HostelInfo.NIGHTLIFE, fontSize = 13.sp, color = MutedText, lineHeight = 19.sp)
             }
         }
 
@@ -375,6 +391,62 @@ private fun ContactRow(icon: androidx.compose.ui.graphics.vector.ImageVector, ti
                 Text(title, fontSize = 12.sp, color = FaintText, fontWeight = FontWeight.SemiBold)
                 Text(value, fontSize = 14.sp, color = TealDeep, fontWeight = FontWeight.Medium, lineHeight = 19.sp)
             }
+        }
+    }
+}
+
+/* -------------------------------- GALLERY ------------------------------- */
+
+@Composable
+fun GalleryScreen() {
+    LazyColumn(
+        modifier = Modifier.fillMaxSize().background(Cream),
+        contentPadding = PaddingValues(bottom = 24.dp)
+    ) {
+        item {
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .background(Brush.verticalGradient(listOf(TealPrimary, TealDeep)))
+                    .padding(24.dp)
+            ) {
+                Column {
+                    Text("Galeria", color = Snow, fontSize = 28.sp, fontWeight = FontWeight.ExtraBold)
+                    Text("Zobacz hostel i Wrocław", color = Sand, fontSize = 14.sp, fontWeight = FontWeight.SemiBold)
+                }
+            }
+        }
+        items(gallery) { item -> GalleryCard(item) }
+    }
+}
+
+@Composable
+private fun GalleryCard(item: GalleryItem) {
+    Card(
+        modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 8.dp),
+        shape = RoundedCornerShape(18.dp),
+        elevation = CardDefaults.cardElevation(defaultElevation = 3.dp),
+        colors = CardDefaults.cardColors(containerColor = Snow)
+    ) {
+        Box(modifier = Modifier.fillMaxWidth().height(220.dp)) {
+            Image(
+                painter = painterResource(item.image),
+                contentDescription = item.caption,
+                contentScale = ContentScale.Crop,
+                modifier = Modifier.fillMaxSize()
+            )
+            Box(
+                Modifier.fillMaxSize().background(
+                    Brush.verticalGradient(0f to Color.Transparent, 1f to Color(0xCC000000))
+                )
+            )
+            Text(
+                item.caption,
+                color = Snow,
+                fontSize = 15.sp,
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier.align(Alignment.BottomStart).padding(16.dp)
+            )
         }
     }
 }

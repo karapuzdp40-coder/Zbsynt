@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Hotel
 import androidx.compose.material.icons.outlined.Bed
+import androidx.compose.material.icons.outlined.PhotoLibrary
 import androidx.compose.material.icons.outlined.Place
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
@@ -25,6 +26,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.absynth.hostel.ui.screens.ContactScreen
+import com.absynth.hostel.ui.screens.GalleryScreen
 import com.absynth.hostel.ui.screens.HomeScreen
 import com.absynth.hostel.ui.screens.RoomsScreen
 import com.absynth.hostel.ui.theme.Snow
@@ -34,6 +36,7 @@ import com.absynth.hostel.ui.theme.TealPrimary
 private enum class Dest(val route: String, val label: String, val icon: ImageVector) {
     Home("home", "Hostel", Icons.Filled.Hotel),
     Rooms("rooms", "Pokoje", Icons.Outlined.Bed),
+    Gallery("gallery", "Galeria", Icons.Outlined.PhotoLibrary),
     Contact("contact", "Kontakt", Icons.Outlined.Place),
 }
 
@@ -79,6 +82,7 @@ fun AbsyntApp() {
         ) {
             composable(Dest.Home.route) { HomeScreen(onBook = { navController.navigate(Dest.Rooms.route) }) }
             composable(Dest.Rooms.route) { RoomsScreen() }
+            composable(Dest.Gallery.route) { GalleryScreen() }
             composable(Dest.Contact.route) { ContactScreen() }
         }
     }
